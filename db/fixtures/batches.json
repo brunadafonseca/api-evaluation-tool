@@ -1,0 +1,26 @@
+[
+  {
+    "number": "1",
+    "students": [
+      {
+        "name": "Hermione Granger",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/hermione.png"
+      },
+      {
+        "name": "Harry Potter",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705226/hogwarts/harry-potter.jpg"
+      },
+      {
+        "name": "Draco Malfoy",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/draco.png"
+      },
+      {
+        "name": "Ron Weasley",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/ron.png"
+      }
+    ]
+  },
+  {
+    "number": "2"
+  }
+]
