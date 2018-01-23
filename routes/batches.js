@@ -13,6 +13,7 @@ router
   })
   .get('/batches/:id', (req, res, next) => {
     const id = req.params.id
+    console.log(req.body)
 
     Batch.findById(id)
       .then((batch) => {
@@ -37,35 +38,27 @@ router
   })
   .put('/batches/:id', authenticate, (req, res, next) => {
     const id = req.params.id
-    const updatedGame = req.body
+    const updatedBatch = req.body
 
-    Game.findByIdAndUpdate(id, { $set: updatedGame }, { new: true })
-      .then((game) => {
-        io.emit('action', {
-          type: 'GAME_UPDATED',
-          payload: game
-        })
-        res.json(game)
+    Game.findByIdAndUpdate(id, { $set: updatedBatch }, { new: true })
+      .then((batch) => {
+        res.json(batch)
       })
       .catch((error) => next(error))
   })
   .patch('/batches/:id', authenticate, (req, res, next) => {
     const id = req.params.id
-    const patchForGame = req.body
+    const patchForBatch = req.body
 
-    Game.findById(id)
-      .then((game) => {
-        if (!game) { return next() }
+    Batch.findById(id)
+      .then((batch) => {
+        if (!batch) { return next() }
 
-        const updatedGame = { ...game, ...patchForGame }
+        const updatedBatch = { ...batch, ...patchForBatch }
 
-        Game.findByIdAndUpdate(id, { $set: updatedGame }, { new: true })
-          .then((game) => {
-            io.emit('action', {
-              type: 'GAME_UPDATED',
-              payload: game
-            })
-            res.json(game)
+        Batch.findByIdAndUpdate(id, { $set: updatedBatch }, { new: true })
+          .then((batch) => {
+            res.json(batch)
           })
           .catch((error) => next(error))
       })
@@ -73,12 +66,8 @@ router
   })
   .delete('/batches/:id', authenticate, (req, res, next) => {
     const id = req.params.id
-    Game.findByIdAndRemove(id)
+    Batch.findByIdAndRemove(id)
       .then(() => {
-        io.emit('action', {
-          type: 'GAME_REMOVED',
-          payload: id
-        })
         res.status = 200
         res.json({
           message: 'Removed',
