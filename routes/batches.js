@@ -68,14 +68,16 @@ router
       .catch((error) => next(error))
   })
   .patch('/batches/:id/students', authenticate, (req, res, next) => {
-    const id = req.params.id
+    const id = req.body.batchId
     const patchForBatch = req.body
 
     Batch.findById(id)
       .then((batch) => {
         if (!batch) { return next() }
 
-        const updatedBatch = { ...batch, ...patchForBatch }
+        let students = batch.students
+
+        const updatedBatch = { ...batch, students: { ...students, patchForBatch } }
 
         Batch.findByIdAndUpdate(id, { $set: updatedBatch }, { new: true })
           .then((batch) => {
