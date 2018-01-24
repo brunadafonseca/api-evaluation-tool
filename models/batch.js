@@ -10,7 +10,6 @@ const evaluationSchema = new Schema({
 const studentSchema = new Schema({
   name: { type: String, required: true },
   photo: { type: String, required: true },
-  batchId: { type: Schema.Types.ObjectId, ref: 'batchSchema'},
   evaluations: [evaluationSchema]
 })
 
@@ -19,6 +18,8 @@ const batchSchema = new Schema({
   number: { type: Number, required: true },
   startDate: { type: Date, default: Date.now },
   endDate: { type: Date, default: Date.now },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
   batchPerformance: {
     green: [],
     yellow: [],

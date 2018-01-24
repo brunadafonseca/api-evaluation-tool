@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const passport = require('../../config/auth')
-const { Batch } = require('../../models')
+const { Batch, Student} = require('../../models')
 
 const authenticate = passport.authorize('jwt', { session: false })
 
