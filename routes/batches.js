@@ -49,6 +49,27 @@ router
   .patch('/batches/:id', authenticate, (req, res, next) => {
     const id = req.params.id
     const patchForBatch = req.body
+    const newStudent = req.body.student
+
+    Batch.findById(id)
+      .then((batch) => {
+        if (!batch) { return next() }
+
+        let students = batch.students
+
+        const updatedBatch = { ...batch, ...patchForBatch, students: students.concat(newStudent) }
+
+        Batch.findByIdAndUpdate(id, { $set: updatedBatch }, { new: true })
+          .then((batch) => {
+            res.json(batch)
+          })
+          .catch((error) => next(error))
+      })
+      .catch((error) => next(error))
+  })
+  .patch('/batches/:id/students', authenticate, (req, res, next) => {
+    const id = req.params.id
+    const patchForBatch = req.body
 
     Batch.findById(id)
       .then((batch) => {
