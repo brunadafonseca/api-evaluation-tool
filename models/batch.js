@@ -4,7 +4,9 @@ const { Schema } = mongoose
 const evaluationSchema = new Schema({
   day: { type: Date, default: Date.now },
   color: { type: String },
-  remark: { type: String }
+  remark: { type: String },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now }
 })
 
 const studentSchema = new Schema({
@@ -21,9 +23,9 @@ const batchSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
   batchPerformance: {
-    green: [],
-    yellow: [],
-    red: []
+    green: { type: Number },
+    orange: { type: Number },
+    red: { type: Number }
   }
 });
 
