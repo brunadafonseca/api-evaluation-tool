@@ -1,18 +1,106 @@
 [
   {
     "name": "Hermione Granger",
-    "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/hermione.png"
+    "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/hermione.png",
+    "evaluations": [
+      {
+        "day": "Wed Jan 24 2018",
+        "color": "green"
+      },
+      {
+        "day": "Thu Jan 25 2018",
+        "color": "green"
+      },
+      {
+        "day": "Fri Jan 26 2018",
+        "color": "green"
+      },
+      {
+        "day": "Mon Jan 29 2018",
+        "color": "green"
+      },
+      {
+        "day": "Tue Jan 30 2018",
+        "color": "green"
+      }
+    ]
   },
   {
     "name": "Harry Potter",
-    "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705226/hogwarts/harry-potter.jpg"
+    "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705226/hogwarts/harry-potter.jpg",
+    "evaluations": [
+      {
+        "day": "Wed Jan 24 2018",
+        "color": "orange"
+      },
+      {
+        "day": "Thu Jan 25 2018",
+        "color": "green"
+      },
+      {
+        "day": "Fri Jan 26 2018",
+        "color": "green"
+      },
+      {
+        "day": "Mon Jan 29 2018",
+        "color": "red"
+      },
+      {
+        "day": "Tue Jan 30 2018",
+        "color": "orange"
+      }
+    ]
   },
   {
     "name": "Draco Malfoy",
-    "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/draco.png"
+    "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/draco.png",
+    "evaluations": [
+      {
+        "day": "Wed Jan 24 2018",
+        "color": "green"
+      },
+      {
+        "day": "Thu Jan 25 2018",
+        "color": "green"
+      },
+      {
+        "day": "Fri Jan 26 2018",
+        "color": "orange"
+      },
+      {
+        "day": "Mon Jan 29 2018",
+        "color": "orange"
+      },
+      {
+        "day": "Tue Jan 30 2018",
+        "color": "orange"
+      }
+    ]
   },
   {
     "name": "Ron Weasley",
-    "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/ron.png"
+    "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/ron.png",
+    "evaluations": [
+      {
+        "day": "Wed Jan 24 2018",
+        "color": "red"
+      },
+      {
+        "day": "Thu Jan 25 2018",
+        "color": "orange"
+      },
+      {
+        "day": "Fri Jan 26 2018",
+        "color": "red"
+      },
+      {
+        "day": "Mon Jan 29 2018",
+        "color": "red"
+      },
+      {
+        "day": "Tue Jan 30 2018",
+        "color": "red"
+      }
+    ]
   }
 ]

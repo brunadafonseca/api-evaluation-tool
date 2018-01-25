@@ -1,6 +1,7 @@
 const request = require('superagent')
 const user = require('./fixtures/user.json')
 const batches = require('./fixtures/batches.json')
+const students = require('./fixtures/students.json')
 
 const createUrl = (path) => {
   return `${process.env.HOST || `http://localhost:${process.env.PORT || 3030}`}${path}`
@@ -14,6 +15,18 @@ const createBatches = (token) => {
       .send(batch)
       .then((res) => {
         console.log('Batch seeded...', res.body.number)
+        const batchId = res.body._id
+        return (students.map((student) => {
+          return request
+          .post(createUrl(`/batches/${batchId}/students`))
+          .set('Authorization', `Bearer ${token}`)
+          .then((res) => {
+            console.log('Created student...', res.body.name)
+          })
+          .catch((err) => {
+            console.error('Error creating student!', err)
+          })
+        }))
       })
       .catch((err) => {
         console.error('Error seeding batch!', err)

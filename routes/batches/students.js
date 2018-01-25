@@ -26,7 +26,7 @@ router
     const student = req.batch.students.filter(student => {
       return student._id.toString() === req.params.student_id
     })
-    res.json(student)
+    res.json(student[0])
   })
 
   .post('/batches/:id/students', authenticate, loadBatch, (req, res, next) => {
@@ -46,23 +46,17 @@ router
       res.json(req.students)
     })
 
-    .patch('/batches/:id/students/:student_id', loadBatch, (req, res, next) => {
-      if (!req.batch) { return next() }
-      const student = req.batch.students = req.batch.students.filter(student => {
-        return student._id.toString() === req.params.student_id
-      })
-      const updatedStudent = req.body
+    .patch('/batches/:id/students/:student_id', loadBatch, authenticate, (req, res, next) => {
+      let currentStudent = req.batch.students.filter((student) => student._id.toString() === req.params.student_id)
 
-      student = [{ ...student }].concat(updatedStudent)
-      student.save()
-        .then((student) => {
-          req.student = student
-          next()
+      console.log(currentStudent)
+      currentStudent[0].evaluations.push(req.body)
+
+      req.batch.save()
+        .then((batch) => {
+          req.batch = batch
         })
-        .catch((error) => next(error))
-    },
-    (req, res, next) => {
-      res.json(req.student)
+        res.json(currentStudent[0])
     })
   // .delete('/batches/:id/students', authenticate, (req, res, next) => {
   //   if (!req.batch) { return next() }
