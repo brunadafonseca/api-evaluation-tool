@@ -23,9 +23,9 @@ const batchSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
   batchPerformance: {
-    green: { type: Number },
-    orange: { type: Number },
-    red: { type: Number }
+    green: [],
+    orange: [],
+    red: []
   }
 });
 

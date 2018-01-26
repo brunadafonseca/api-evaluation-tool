@@ -2,6 +2,7 @@ const router = require('express').Router()
 const passport = require('../config/auth')
 const { Batch } = require('../models')
 
+
 const authenticate = passport.authorize('jwt', { session: false })
 
 router
@@ -28,7 +29,7 @@ router
       startDate: req.body.startDate,
       endDate: req.body.endDate,
       students: [],
-      batchPerformance: []
+      batchPerformance: {}
     }
 
     Batch.create(newBatch)
@@ -50,15 +51,12 @@ router
   .patch('/batches/:id', authenticate, (req, res, next) => {
     const id = req.params.id
     const patchForBatch = req.body
-    const newStudent = req.body.student
 
     Batch.findById(id)
       .then((batch) => {
         if (!batch) { return next() }
 
-        let students = batch.students
-
-        const updatedBatch = { ...batch, ...patchForBatch, students: students.concat(newStudent) }
+        const updatedBatch = { ...batch, ...patchForBatch }
 
         Batch.findByIdAndUpdate(id, { $set: updatedBatch }, { new: true })
           .then((batch) => {
