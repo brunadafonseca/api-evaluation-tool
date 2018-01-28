@@ -18,6 +18,12 @@ router
     Batch.findById(id)
       .then((batch) => {
         if (!batch) { return next() }
+        batch.students.sort((a, b) => {
+            const nameA = a.name.toUpperCase()
+            const nameB = b.name.toUpperCase()
+            if (nameA < nameB) { return -1 }
+            if (nameA > nameB) { return 1 }
+          })
         res.json(batch)
       })
       .catch((error) => next(error))
@@ -41,7 +47,7 @@ router
     const id = req.params.id
     const updatedBatch = req.body
 
-    Game.findByIdAndUpdate(id, { $set: updatedBatch }, { new: true })
+    Batch.findByIdAndUpdate(id, { $set: updatedBatch }, { new: true })
       .then((batch) => {
         res.json(batch)
       })
@@ -50,15 +56,12 @@ router
   .patch('/batches/:id', authenticate, (req, res, next) => {
     const id = req.params.id
     const patchForBatch = req.body
-    const newStudent = req.body.student
 
     Batch.findById(id)
       .then((batch) => {
         if (!batch) { return next() }
 
-        let students = batch.students
-
-        const updatedBatch = { ...batch, ...patchForBatch, students: students.concat(newStudent) }
+        const updatedBatch = { ...batch, ...patchForBatch }
 
         Batch.findByIdAndUpdate(id, { $set: updatedBatch }, { new: true })
           .then((batch) => {

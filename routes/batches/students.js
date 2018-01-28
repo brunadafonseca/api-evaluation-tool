@@ -18,7 +18,14 @@ const loadBatch = (req, res, next) => {
 router
   .get('/batches/:id/students', loadBatch, (req, res, next) => {
     if (!req.batch) { return next() }
-    res.json(req.batch.students)
+    const students = req.batch.students
+    students.sort((a, b) => {
+        const nameA = a.name.toUpperCase()
+        const nameB = b.name.toUpperCase()
+        if (nameA < nameB) { return -1 }
+        if (nameA > nameB) { return 1 }
+      })
+    res.json(students)
   })
 
   .get('/batches/:id/students/:student_id', loadBatch, (req, res, next) => {
@@ -32,9 +39,8 @@ router
   .post('/batches/:id/students', authenticate, loadBatch, (req, res, next) => {
     if (!req.batch) { return next() }
 
-    console.log(req.body)
     const newStudent = req.body
-    req.batch.students.push(newStudent)
+    const students = req.batch.students.push(newStudent)
 
     req.batch.save()
       .then((batch) => {
@@ -61,7 +67,7 @@ router
         .then((batch) => {
           req.batch = batch
         })
-        res.json(currentStudent[0])
+        res.json(student)
     })
     .delete('/batches/:id/students/:studentId', authenticate, (req, res, next) => {
       if (!req.batch) { return next() }
