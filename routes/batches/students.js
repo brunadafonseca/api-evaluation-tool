@@ -55,19 +55,18 @@ router
 
     .patch('/batches/:id/students/:student_id', loadBatch, authenticate, (req, res, next) => {
       if (!req.batch) { return next() }
-      console.log(req.batch)
-      const student = req.batch.students.filter(student => {
+      const students = req.batch.students
+      const student = students.filter(student => {
         return student._id.toString() === req.params.student_id
       })[0]
 
-      console.log(student)
       student.evaluations.push(req.body)
 
       req.batch.save()
         .then((batch) => {
           req.batch = batch
         })
-        res.json(student)
+        res.json(req.batch)
     })
     .delete('/batches/:id/students/:studentId', authenticate, (req, res, next) => {
       if (!req.batch) { return next() }
