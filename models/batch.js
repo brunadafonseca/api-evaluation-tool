@@ -1,16 +1,22 @@
 const mongoose = require('../config/database')
 const { Schema } = mongoose
 
-const evaluationSchema = new Schema({
-  day: { type: Date, default: Date.now },
-  color: { type: String },
-  remark: { type: String }
-})
+// const evaluationSchema = new Schema({
+//   day: { type: Date, default: Date.now },
+//   color: { type: String },
+//   remark: { type: String },
+//   createdAt: { type: Date, default: Date.now },
+//   updatedAt: { type: Date, default: Date.now }
+// })
 
 const studentSchema = new Schema({
   name: { type: String, required: true },
   photo: { type: String, required: true },
-  evaluations: [evaluationSchema]
+  evaluations: [{
+    day: Date,
+    color: String,
+    remark: String
+  }]
 })
 
 const batchSchema = new Schema({
@@ -20,11 +26,6 @@ const batchSchema = new Schema({
   endDate: { type: Date, default: Date.now },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
-  batchPerformance: {
-    green: [],
-    yellow: [],
-    red: []
-  }
 });
 
 module.exports = mongoose.model('batches', batchSchema)

@@ -7,6 +7,21 @@ const createUrl = (path) => {
   return `${process.env.HOST || `http://localhost:${process.env.PORT || 3030}`}${path}`
 }
 
+const createStudents = (id, token) => {
+  return students.map((student) => {
+    return request
+      .post(createUrl(`/batches/${id}/students`))
+      .set('Authorization', `Bearer ${token}`)
+      .send(student)
+      .then((res) => {
+        console.log('Student created...')
+      })
+      .catch((err) => {
+        console.error('Error seeding student!', err)
+      })
+  })
+}
+
 const createBatches = (token) => {
   return batches.map((batch) => {
     return request
@@ -15,18 +30,7 @@ const createBatches = (token) => {
       .send(batch)
       .then((res) => {
         console.log('Batch seeded...', res.body.number)
-        const batchId = res.body._id
-        return (students.map((student) => {
-          return request
-          .post(createUrl(`/batches/${batchId}/students`))
-          .set('Authorization', `Bearer ${token}`)
-          .then((res) => {
-            console.log('Created student...', res.body.name)
-          })
-          .catch((err) => {
-            console.error('Error creating student!', err)
-          })
-        }))
+        return createStudents(res.body._id, token)
       })
       .catch((err) => {
         console.error('Error seeding batch!', err)
