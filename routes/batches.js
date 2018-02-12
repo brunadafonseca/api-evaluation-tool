@@ -11,6 +11,7 @@ router
       .then((batches) => res.json(batches))
       .catch((error) => next(error))
   })
+
   .get('/batches/:id', (req, res, next) => {
     const id = req.params.id
 
