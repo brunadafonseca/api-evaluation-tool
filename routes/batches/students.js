@@ -77,7 +77,7 @@ router
         })
 
         const selectedStudent = req.batch.students.filter(student => (student._id.toString() === req.params.studentId.toString()))[0]
-        res.json(selectedStudent)
+        res.json({updatedBatch: req.batch, updatedStudent: selectedStudent })
     })
 
     .delete('/batches/:id/students/:studentId', authenticate, (req, res, next) => {
