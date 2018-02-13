@@ -1,45 +1,39 @@
-# Express Games API
+# Evaluation tool
 
-RESTful Express API for Games on top of MongoDB.
+This project was the final assignment for Codaisseur Academy.
 
-## Authentication
+![main page](http://bit.ly/2o4oBG9)
 
-Create a User with the following attributes:
+![student page](http://bit.ly/2EZXhRl)
 
-| Attribute | Type   | Description   |
-|-----------|--------|---------------|
-| name      | string | Full name     |
-| email     | string | Email address |
-| password  | string | Password      |
+The app is intended for teachers to keep track of students performances everyday.
 
-Use the following endpoints to deal with initial authentication and the user.
+### User stories for this project:
 
-| HTTP Verb | Path        | Description |
-|-----------|-------------|--------------|
-| `POST`    | `/users`    | Create a user account |
-| `POST`    | `/sessions` | Log in with email and password, and retrieve a JWT token |
-| `GET`     | `/users/me` | Retrieve own user data |
++ As a Teacher I can sign into the tool with my email and password to start using it
++ As a Teacher, after I signed in, I see a (list of) current classes, identifiable by their Batch number, start date, and end date.
++ As a Teacher, I can create a new class by giving it a Batch number, start date, and end date.
++ As a Teacher I can add, edit, remove students in a class. To add a student I need to provide: 1) their full name, 2) (a link to) their profile picture.
++ As a Teacher, I can click on a class, after which I see a grid of all the students by their name and photo, and the last color code given to them. Above the students grid, I see a bar with 1-3 segments, showing me the percentage (%) of students evaluated GREEN, YELLOW, and RED.
++ As a Teacher, when I click on a photo or name, I can click on GREEN, YELLOW, or RED, fill in the date (defaults to today), and a remark. When I click “Save” it saves my evaluation, and takes me back to the student overview, when I click “Save and Next” it saves and shows me the next student.
++ As a Teacher, when I look at a student’s page, I can only fill in one evaluation per student per day. I can edit my own evaluations.
++ ALGORITHM PART! As a Teacher, from the class view I can click a button “ASK A QUESTION”. It shows me the name and picture of a random student to ask a question. Not entirely random though: RED students get ~47% of the questions YELLOW students ~32%, and GREEN students ~21%.
 
-To authorize further requests, use Bearer authentication with the provided JWT token:
+Make sure you have [MongoDB](https://www.mongodb.com/)
 
+```bash
+git clone git@github.com:brunadafonseca/api-evaluation-tool.git
+cd api-evaluation-tool
+yarn install
+yarn run seed
+yarn start
 ```
-Authorization: Bearer <token here>
+
+For the front end:
+
+```bash
+git clone git@github.com:brunadafonseca/react-redux-evaluation-tool.git
+cd react-redux-evaluation-tool
+yarn install
+yarn start
 ```
-
-_**Note**: See `db/seed.js` for an example._
-
-## Games
-
-**Note:** See `models/game.js` for the Game schema attributes.
-
-| HTTP Verb | Path | Description |
-|-----------|------|--------------|
-| `GET` | `/games` | Retrieve all games |
-| `POST` | `/games` | Create a game* |
-| `GET` | `/games/:id` | Retrieve a single game by it's `id` |
-| `PUT` | `/games/:id` | Update a game with a specific `id`* |
-| `PATCH` | `/games/:id` | Patch (partial update) a game with a specific `id`* |
-| `DELETE` | `/games/:id` | Destroy a single game by it's `id`* |
-| | | _* Needs authentication_ |
-
-_**Note**: Run `yarn run seed` to seed some initial games._
