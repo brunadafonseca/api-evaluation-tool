@@ -82,7 +82,9 @@ router
 
     .delete('/batches/:id/students/:studentId', authenticate, (req, res, next) => {
       if (!req.batch) { return next() }
-
+      const students = req.params.studentId
+      console.log("hello")
+      console.log(students)
       req.batch.students = req.batch.students.filter((student) => student._id.toString() !== req.params.studentId)
 
       req.batch.save()
