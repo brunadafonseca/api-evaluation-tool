@@ -28,13 +28,13 @@ router
       })
       .catch((error) => next(error))
   })
+
   .post('/batches', authenticate, (req, res, next) => {
     const newBatch = {
       number: req.body.number,
       startDate: req.body.startDate,
       endDate: req.body.endDate,
       students: [],
-      batchPerformance: []
     }
 
     Batch.create(newBatch)
@@ -43,6 +43,7 @@ router
       })
       .catch((error) => next(error))
   })
+
   .put('/batches/:id', authenticate, (req, res, next) => {
     const id = req.params.id
     const updatedBatch = req.body
@@ -53,6 +54,7 @@ router
       })
       .catch((error) => next(error))
   })
+
   .patch('/batches/:id', authenticate, (req, res, next) => {
     const id = req.params.id
     const patchForBatch = req.body
@@ -71,6 +73,7 @@ router
       })
       .catch((error) => next(error))
   })
+
   .delete('/batches/:id', authenticate, (req, res, next) => {
     const id = req.params.id
     Batch.findByIdAndRemove(id)
