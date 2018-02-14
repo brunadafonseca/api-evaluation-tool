@@ -80,20 +80,4 @@ router
         res.json({updatedBatch: req.batch, updatedStudent: selectedStudent })
     })
 
-    .delete('/batches/:id/students/:studentId', authenticate, (req, res, next) => {
-      if (!req.batch) { return next() }
-
-      req.batch.students = req.batch.students.filter((student) => student._id.toString() !== req.params.studentId)
-
-      req.batch.save()
-        .then((batch) => {
-          req.batch = batch
-          next()
-        })
-        .catch((error) => next(error))
-      },
-      (req, res, next) => {
-        res.json(req.students)
-      })
-
   module.exports = router
