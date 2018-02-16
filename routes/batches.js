@@ -30,12 +30,7 @@ router
   })
 
   .post('/batches', authenticate, (req, res, next) => {
-    const newBatch = {
-      number: req.body.number,
-      startDate: req.body.startDate,
-      endDate: req.body.endDate,
-      students: [],
-    }
+    const newBatch = req.body
 
     Batch.create(newBatch)
       .then((batch) => {
