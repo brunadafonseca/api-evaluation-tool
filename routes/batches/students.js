@@ -15,21 +15,16 @@ const loadBatch = (req, res, next) => {
     .catch((error) => next(error))
 }
 
+const sortStudents = (students) => {
+  return students.sort((a, b) => {
+          const nameA = a.name.toUpperCase()
+          const nameB = b.name.toUpperCase()
+          if (nameA < nameB) { return -1 }
+          if (nameA > nameB) { return 1 }
+        })
+}
+
 router
-  .get('/batches/:id/students', loadBatch, (req, res, next) => {
-    if (!req.batch) { return next() }
-    const students = req.batch.students
-
-    students.sort((a, b) => {
-        const nameA = a.name.toUpperCase()
-        const nameB = b.name.toUpperCase()
-        if (nameA < nameB) { return -1 }
-        if (nameA > nameB) { return 1 }
-      })
-
-    res.json(students)
-  })
-
   .get('/batches/:id/students/:student_id', loadBatch, (req, res, next) => {
     if (!req.batch) { return next() }
 
@@ -54,6 +49,7 @@ router
     newStudent = {...newStudent, evaluations: defaultEvaluation }
 
     req.batch.students.push(newStudent)
+    sortStudents(req.batch.students)
 
     req.batch.save()
       .then((batch) => {
@@ -78,13 +74,6 @@ router
         return student
       })
 
-      updatedStudents.sort((a, b) => {
-          const nameA = a.name.toUpperCase()
-          const nameB = b.name.toUpperCase()
-          if (nameA < nameB) { return -1 }
-          if (nameA > nameB) { return 1 }
-        })
-
       req.batch.students = updatedStudents
 
       req.batch.save()
@@ -92,6 +81,21 @@ router
           req.batch = batch
         })
 
+        res.json(req.batch)
+    })
+
+    .delete('/batches/:id/students/:studentId', authenticate, loadBatch, (req, res, next) => {
+      if (!req.batch) { return next() }
+      const studentId = req.params.studentId
+
+      const updatedStudents = req.batch.students.filter(student => student._id.toString() !== studentId)
+
+      req.batch.students = updatedStudents
+
+      req.batch.save()
+        .then((batch) => {
+          req.batch = batch
+        })
         res.json(req.batch)
     })
 

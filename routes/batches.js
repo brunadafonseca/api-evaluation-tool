@@ -18,12 +18,7 @@ router
     Batch.findById(id)
       .then((batch) => {
         if (!batch) { return next() }
-        batch.students.sort((a, b) => {
-            const nameA = a.name.toUpperCase()
-            const nameB = b.name.toUpperCase()
-            if (nameA < nameB) { return -1 }
-            if (nameA > nameB) { return 1 }
-          })
+        
         res.json(batch)
       })
       .catch((error) => next(error))

@@ -5,8 +5,8 @@
     "endDate": "Wed Nov 14 2018",
     "students": [
       {
-        "name": "Hermione Granger",
-        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/hermione.png",
+        "name": "Draco Malfoy",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/draco.png",
         "evaluations": [
           {
             "day": "Wed Jan 24 2018",
@@ -18,7 +18,85 @@
           },
           {
             "day": "Fri Jan 26 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Mon Jan 29 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Tue Jan 30 2018",
+            "color": "orange"
+          }
+        ]
+      },
+      {
+        "name": "Fred Weasley",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1518811692/nintchdbpict000280151971_lm3vid.jpg",
+        "evaluations": [
+          {
+            "day": "Wed Jan 24 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Thu Jan 25 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Fri Jan 26 2018",
             "color": "green"
+          },
+          {
+            "day": "Mon Jan 29 2018",
+            "color": "red"
+          },
+          {
+            "day": "Tue Jan 30 2018",
+            "color": "orange"
+          }
+        ]
+      },
+      {
+        "name": "George Weasley",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1518811692/nintchdbpict000280151971_lm3vid.jpg",
+        "evaluations": [
+          {
+            "day": "Wed Jan 24 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Thu Jan 25 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Fri Jan 26 2018",
+            "color": "green"
+          },
+          {
+            "day": "Mon Jan 29 2018",
+            "color": "red"
+          },
+          {
+            "day": "Tue Jan 30 2018",
+            "color": "orange"
+          }
+        ]
+      },
+      {
+        "name": "Ginny Weasley",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1518811438/cf5fd955e6d94babd8f0779814618263ae273209_00_psabrx.jpg",
+        "evaluations": [
+          {
+            "day": "Wed Jan 24 2018",
+            "color": "green"
+          },
+          {
+            "day": "Thu Jan 25 2018",
+            "color": "green"
+          },
+          {
+            "day": "Fri Jan 26 2018",
+            "color": "orange"
           },
           {
             "day": "Mon Jan 29 2018",
@@ -57,6 +135,117 @@
         ]
       },
       {
+        "name": "Hermione Granger",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/hermione.png",
+        "evaluations": [
+          {
+            "day": "Wed Jan 24 2018",
+            "color": "green"
+          },
+          {
+            "day": "Thu Jan 25 2018",
+            "color": "green"
+          },
+          {
+            "day": "Fri Jan 26 2018",
+            "color": "green"
+          },
+          {
+            "day": "Mon Jan 29 2018",
+            "color": "green"
+          },
+          {
+            "day": "Tue Jan 30 2018",
+            "color": "green"
+          }
+        ]
+      },
+      {
+        "name": "Luna Lovegood",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1518811468/lunalovegoodfeature_qwp1yg.jpg",
+        "evaluations": [
+          {
+            "day": "Wed Jan 24 2018",
+            "color": "green"
+          },
+          {
+            "day": "Thu Jan 25 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Fri Jan 26 2018",
+            "color": "green"
+          },
+          {
+            "day": "Mon Jan 29 2018",
+            "color": "green"
+          },
+          {
+            "day": "Tue Jan 30 2018",
+            "color": "green"
+          }
+        ]
+      },
+      {
+        "name": "Neville Longbottom",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1518811297/gallery_1426083437-neville_longbottom_fz6mof.png",
+        "evaluations": [
+          {
+            "day": "Wed Jan 24 2018",
+            "color": "red"
+          },
+          {
+            "day": "Thu Jan 25 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Fri Jan 26 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Mon Jan 29 2018",
+            "color": "green"
+          },
+          {
+            "day": "Tue Jan 30 2018",
+            "color": "red"
+          }
+        ]
+      },
+      {
+        "name": "Ron Weasley",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/ron.png",
+        "evaluations": [
+          {
+            "day": "Wed Jan 24 2018",
+            "color": "red"
+          },
+          {
+            "day": "Thu Jan 25 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Fri Jan 26 2018",
+            "color": "red"
+          },
+          {
+            "day": "Mon Jan 29 2018",
+            "color": "red"
+          },
+          {
+            "day": "Tue Jan 30 2018",
+            "color": "red"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "number": "12",
+    "startDate": "Fri Jun 22 2018",
+    "endDate": "Wed Nov 14 2018",
+    "students": [
+      {
         "name": "Draco Malfoy",
         "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/draco.png",
         "evaluations": [
@@ -79,6 +268,188 @@
           {
             "day": "Tue Jan 30 2018",
             "color": "orange"
+          }
+        ]
+      },
+      {
+        "name": "Fred Weasley",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1518811692/nintchdbpict000280151971_lm3vid.jpg",
+        "evaluations": [
+          {
+            "day": "Wed Jan 24 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Thu Jan 25 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Fri Jan 26 2018",
+            "color": "green"
+          },
+          {
+            "day": "Mon Jan 29 2018",
+            "color": "red"
+          },
+          {
+            "day": "Tue Jan 30 2018",
+            "color": "orange"
+          }
+        ]
+      },
+      {
+        "name": "George Weasley",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1518811692/nintchdbpict000280151971_lm3vid.jpg",
+        "evaluations": [
+          {
+            "day": "Wed Jan 24 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Thu Jan 25 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Fri Jan 26 2018",
+            "color": "green"
+          },
+          {
+            "day": "Mon Jan 29 2018",
+            "color": "red"
+          },
+          {
+            "day": "Tue Jan 30 2018",
+            "color": "orange"
+          }
+        ]
+      },
+      {
+        "name": "Ginny Weasley",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1518811438/cf5fd955e6d94babd8f0779814618263ae273209_00_psabrx.jpg",
+        "evaluations": [
+          {
+            "day": "Wed Jan 24 2018",
+            "color": "green"
+          },
+          {
+            "day": "Thu Jan 25 2018",
+            "color": "green"
+          },
+          {
+            "day": "Fri Jan 26 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Mon Jan 29 2018",
+            "color": "green"
+          },
+          {
+            "day": "Tue Jan 30 2018",
+            "color": "green"
+          }
+        ]
+      },
+      {
+        "name": "Harry Potter",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705226/hogwarts/harry-potter.jpg",
+        "evaluations": [
+          {
+            "day": "Wed Jan 24 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Thu Jan 25 2018",
+            "color": "green"
+          },
+          {
+            "day": "Fri Jan 26 2018",
+            "color": "green"
+          },
+          {
+            "day": "Mon Jan 29 2018",
+            "color": "red"
+          },
+          {
+            "day": "Tue Jan 30 2018",
+            "color": "orange"
+          }
+        ]
+      },
+      {
+        "name": "Hermione Granger",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1516705227/hogwarts/hermione.png",
+        "evaluations": [
+          {
+            "day": "Wed Jan 24 2018",
+            "color": "green"
+          },
+          {
+            "day": "Thu Jan 25 2018",
+            "color": "green"
+          },
+          {
+            "day": "Fri Jan 26 2018",
+            "color": "green"
+          },
+          {
+            "day": "Mon Jan 29 2018",
+            "color": "green"
+          },
+          {
+            "day": "Tue Jan 30 2018",
+            "color": "green"
+          }
+        ]
+      },
+      {
+        "name": "Luna Lovegood",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1518811468/lunalovegoodfeature_qwp1yg.jpg",
+        "evaluations": [
+          {
+            "day": "Wed Jan 24 2018",
+            "color": "green"
+          },
+          {
+            "day": "Thu Jan 25 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Fri Jan 26 2018",
+            "color": "green"
+          },
+          {
+            "day": "Mon Jan 29 2018",
+            "color": "green"
+          },
+          {
+            "day": "Tue Jan 30 2018",
+            "color": "green"
+          }
+        ]
+      },
+      {
+        "name": "Neville Longbottom",
+        "photo": "http://res.cloudinary.com/dyyxiefx5/image/upload/v1518811297/gallery_1426083437-neville_longbottom_fz6mof.png",
+        "evaluations": [
+          {
+            "day": "Wed Jan 24 2018",
+            "color": "red"
+          },
+          {
+            "day": "Thu Jan 25 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Fri Jan 26 2018",
+            "color": "orange"
+          },
+          {
+            "day": "Mon Jan 29 2018",
+            "color": "green"
+          },
+          {
+            "day": "Tue Jan 30 2018",
+            "color": "red"
           }
         ]
       },
