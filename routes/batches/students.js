@@ -43,8 +43,17 @@ router
   .post('/batches/:id/students', authenticate, loadBatch, (req, res, next) => {
     if (!req.batch) { return next() }
 
-    const newStudent = req.body
-    const students = req.batch.students.push(newStudent)
+    let newStudent = req.body
+
+    const defaultEvaluation = {
+      color: 'orange',
+      remark: 'This is a default remark',
+      day: new Date()
+    }
+
+    newStudent = {...newStudent, evaluations: defaultEvaluation }
+
+    req.batch.students.push(newStudent)
 
     req.batch.save()
       .then((batch) => {
@@ -69,6 +78,13 @@ router
         return student
       })
 
+      updatedStudents.sort((a, b) => {
+          const nameA = a.name.toUpperCase()
+          const nameB = b.name.toUpperCase()
+          if (nameA < nameB) { return -1 }
+          if (nameA > nameB) { return 1 }
+        })
+
       req.batch.students = updatedStudents
 
       req.batch.save()
@@ -76,8 +92,7 @@ router
           req.batch = batch
         })
 
-        const selectedStudent = req.batch.students.filter(student => (student._id.toString() === req.params.studentId.toString()))[0]
-        res.json({updatedBatch: req.batch, updatedStudent: selectedStudent })
+        res.json(req.batch)
     })
 
   module.exports = router
